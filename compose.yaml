@@ -20,6 +20,8 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
+    depends_on:
+      - redis
     ports:
       # HTTP
       - target: 80
@@ -34,6 +36,19 @@ services:
         published: ${HTTP3_PORT:-443}
         protocol: udp
 
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - '${FORWARD_REDIS_PORT:-6379}:6379'
+    volumes:
+      - 'caddy_redis:/data'
+#    networks:
+#      - sail
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      retries: 3
+      timeout: 5s
+      
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
@@ -41,5 +56,6 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  caddy_redis:
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
