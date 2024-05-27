@@ -9,9 +9,9 @@ use App\Enums\PlayerEnum;
 use App\Repositories\GameRepository;
 use Ramsey\Uuid\UuidInterface;
 
-class GameAdapter
+readonly class GameAdapter
 {
-    public function __construct(private readonly GameRepository $gameRepository)
+    public function __construct(private GameRepository $gameRepository)
     {
     }
 

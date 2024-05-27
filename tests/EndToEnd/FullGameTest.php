@@ -7,7 +7,7 @@ namespace App\Tests\EndToEnd;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class GameTest extends WebTestCase
+class FullGameTest extends WebTestCase
 {
 
     private KernelBrowser $client;

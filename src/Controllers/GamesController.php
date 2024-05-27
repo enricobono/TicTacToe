@@ -40,11 +40,11 @@ class GamesController extends AbstractController
         #[MapRequestPayload(validationFailedStatusCode: 400)] UpdateGameDto $request
     ): JsonResponse {
         try {
-            $row    = $request->row;
-            $col    = $request->col;
             $player = PlayerEnum::from($request->player);
 
-            $data = $this->gameAdapter->play(Uuid::fromString($id), $row, $col, $player);
+            $data = $this->gameAdapter->play(
+                Uuid::fromString($id), $request->row, $request->col, $player
+            );
 
             return $this->json(['data' => $data->serialize()]);
         } catch (GameNotFoundException $e) {
