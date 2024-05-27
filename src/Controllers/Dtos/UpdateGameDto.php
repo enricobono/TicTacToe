@@ -13,11 +13,9 @@ readonly class UpdateGameDto
         #[Assert\GreaterThanOrEqual(0)]
         #[Assert\LessThanOrEqual(2)]
         public int $row,
-
         #[Assert\GreaterThanOrEqual(0)]
         #[Assert\LessThanOrEqual(2)]
         public int $col,
-
         #[Assert\GreaterThanOrEqual(1)]
         #[Assert\LessThanOrEqual(2)]
         public int $player,

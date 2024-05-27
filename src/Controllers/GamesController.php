@@ -43,7 +43,10 @@ class GamesController extends AbstractController
             $player = PlayerEnum::from($request->player);
 
             $data = $this->gameAdapter->play(
-                Uuid::fromString($id), $request->row, $request->col, $player
+                Uuid::fromString($id),
+                $request->row,
+                $request->col,
+                $player
             );
 
             return $this->json(['data' => $data->serialize()]);
