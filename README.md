@@ -8,6 +8,7 @@ Stack:
 
 
 ## Installation
+- Copy `.env.example` to `.env`
 - Run `docker compose build --no-cache` to build fresh images 
 - Run `docker compose up --pull always -d --wait` to set up and start a fresh Symfony project
 - Open `https://localhost` in your favorite web browser and accept the auto-generated TLS certificate

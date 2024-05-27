@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
     ->exclude('var')
@@ -7,7 +9,8 @@ $finder = (new PhpCsFixer\Finder())
 
 return (new PhpCsFixer\Config())
     ->setRules([
-        '@Symfony' => true,
+        '@PSR2' => true,
+        'binary_operator_spaces' => ['operators' => ['=' => 'align_single_space']],
     ])
     ->setFinder($finder)
 ;

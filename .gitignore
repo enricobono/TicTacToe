@@ -40,3 +40,6 @@ phpstan.neon
 /bin/phpunit
 
 .env
+/.idea/csv-plugin.xml
+/.idea/phpspec.xml
+/.idea/phpunit.xml
